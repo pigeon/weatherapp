@@ -1,0 +1,31 @@
+### Headers settings
+company: dmytro golub
+
+### Xcode project settings
+project_name: WeatherApp
+xcodeproj_path: WeatherApp.xcodeproj
+
+### Code generation settings section
+# The main project target name
+project_target: WeatherApp
+
+project_file_path: WeatherApp/Modules
+
+project_group_path: WeatherApp/Modules
+
+### Tests generation settings section
+# The tests target name
+test_target: WeatherAppTests
+
+# The file path for new tests
+test_file_path: WeatherAppTests/Modules
+
+# The Xcode group path to new tests
+test_group_path: WeatherAppTests/Modules
+
+
+### Templates
+templates:
+- {name: rviper_controller}
+- {name: mvvm_controller}
+- {name: swifty_viper}
