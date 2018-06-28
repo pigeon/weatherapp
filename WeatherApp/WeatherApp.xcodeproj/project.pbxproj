@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1AC0039C20E4E8AF00A01BA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0039B20E4E8AF00A01BA6 /* AppDelegate.swift */; };
-		1AC0039E20E4E8AF00A01BA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0039D20E4E8AF00A01BA6 /* ViewController.swift */; };
 		1AC003A120E4E8AF00A01BA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0039F20E4E8AF00A01BA6 /* Main.storyboard */; };
 		1AC003A320E4E8AF00A01BA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AC003A220E4E8AF00A01BA6 /* Assets.xcassets */; };
 		1AC003A620E4E8AF00A01BA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AC003A420E4E8AF00A01BA6 /* LaunchScreen.storyboard */; };
@@ -58,7 +57,6 @@
 /* Begin PBXFileReference section */
 		1AC0039820E4E8AF00A01BA6 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AC0039B20E4E8AF00A01BA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1AC0039D20E4E8AF00A01BA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1AC003A020E4E8AF00A01BA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1AC003A220E4E8AF00A01BA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AC003A520E4E8AF00A01BA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 				1AC003EC20E4F3F600A01BA6 /* Service */,
 				1AC003BB20E4F1CE00A01BA6 /* Modules */,
 				1AC0039B20E4E8AF00A01BA6 /* AppDelegate.swift */,
-				1AC0039D20E4E8AF00A01BA6 /* ViewController.swift */,
 				1AC0039F20E4E8AF00A01BA6 /* Main.storyboard */,
 				1AC003A220E4E8AF00A01BA6 /* Assets.xcassets */,
 				1AC003A420E4E8AF00A01BA6 /* LaunchScreen.storyboard */,
@@ -433,7 +430,6 @@
 				1AC0041620E514CA00A01BA6 /* Wind.swift in Sources */,
 				1AC003D720E4F1CE00A01BA6 /* WeatherInteractorInput.swift in Sources */,
 				1AC0041D20E5192200A01BA6 /* WeatherServiceMock.swift in Sources */,
-				1AC0039E20E4E8AF00A01BA6 /* ViewController.swift in Sources */,
 				1AC003D020E4F1CE00A01BA6 /* WeatherViewController.swift in Sources */,
 				1AC0041020E514CA00A01BA6 /* Sys.swift in Sources */,
 				1AC0041520E514CA00A01BA6 /* City.swift in Sources */,
