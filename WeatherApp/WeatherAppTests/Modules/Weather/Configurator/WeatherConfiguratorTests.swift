@@ -6,11 +6,10 @@
 //  Copyright © 2018 dmytro golub. All rights reserved.
 //
 
-import XCTest
 @testable import WeatherApp
+import XCTest
 
 class WeatherModuleConfiguratorTests: XCTestCase {
-
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,12 +21,11 @@ class WeatherModuleConfiguratorTests: XCTestCase {
     }
 
     func testConfigureModuleForViewController() {
-
-        //given
+        // given
         let viewController = WeatherViewControllerMock()
         let configurator = WeatherModuleConfigurator()
 
-        //when
+        // when
         configurator.configureModuleForViewInput(viewInput: viewController)
 
         //then
@@ -44,7 +42,6 @@ class WeatherModuleConfiguratorTests: XCTestCase {
     }
 
     class WeatherViewControllerMock: WeatherViewController {
-
         var setupInitialStateDidCall = false
 
         override func setupInitialState() {

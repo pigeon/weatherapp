@@ -9,17 +9,20 @@
 import UIKit
 
 class WeatherViewController: UIViewController, WeatherViewInput {
-
     var output: WeatherViewOutput!
 
     // MARK: Life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         output.viewIsReady()
     }
 
-
     // MARK: WeatherViewInput
+
     func setupInitialState() {
+    }
+
+    func reload() {
     }
 }

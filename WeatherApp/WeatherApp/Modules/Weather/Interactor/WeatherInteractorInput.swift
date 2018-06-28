@@ -9,5 +9,5 @@
 import Foundation
 
 protocol WeatherInteractorInput {
-
+    func fetchWeather(for city: String)
 }

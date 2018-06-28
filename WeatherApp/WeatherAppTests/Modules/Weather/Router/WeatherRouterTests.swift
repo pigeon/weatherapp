@@ -6,12 +6,10 @@
 //  Copyright © 2018 dmytro golub. All rights reserved.
 //
 
-import XCTest
 @testable import WeatherApp
-
+import XCTest
 
 class WeatherRouterTests: XCTestCase {
-
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -9,16 +9,13 @@
 import UIKit
 
 class WeatherModuleConfigurator {
-
     func configureModuleForViewInput<UIViewController>(viewInput: UIViewController) {
-
         if let viewController = viewInput as? WeatherViewController {
             configure(viewController: viewController)
         }
     }
 
     private func configure(viewController: WeatherViewController) {
-
         let router = WeatherRouter()
 
         let presenter = WeatherPresenter()
@@ -31,5 +28,4 @@ class WeatherModuleConfigurator {
         presenter.interactor = interactor
         viewController.output = presenter
     }
-
 }

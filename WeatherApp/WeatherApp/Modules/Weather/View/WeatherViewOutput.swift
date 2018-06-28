@@ -7,11 +7,10 @@
 //
 
 protocol WeatherViewOutput {
-
     /**
-        @author Dmytro Golub
-        Notify presenter that view is ready
-    */
+     @author Dmytro Golub
+     Notify presenter that view is ready
+     */
 
     func viewIsReady()
 }

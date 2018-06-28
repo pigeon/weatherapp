@@ -7,11 +7,11 @@
 //
 
 protocol WeatherViewInput: class {
-
     /**
-        @author Dmytro Golub
-        Setup initial state of the view
-    */
+     @author Dmytro Golub
+     Setup initial state of the view
+     */
 
     func setupInitialState()
+    func reload()
 }
