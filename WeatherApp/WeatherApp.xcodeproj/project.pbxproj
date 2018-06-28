@@ -42,6 +42,7 @@
 		1AC0041B20E5190700A01BA6 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0041A20E5190700A01BA6 /* response.json */; };
 		1AC0041D20E5192200A01BA6 /* WeatherServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0041C20E5192200A01BA6 /* WeatherServiceMock.swift */; };
 		1AC0041F20E5193B00A01BA6 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0041E20E5193B00A01BA6 /* WeatherService.swift */; };
+		1AC673B520E5881500F697A0 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC673B420E5881500F697A0 /* WeatherTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		1AC0041A20E5190700A01BA6 /* response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = response.json; path = WeatherApp/Resources/response.json; sourceTree = SOURCE_ROOT; };
 		1AC0041C20E5192200A01BA6 /* WeatherServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceMock.swift; sourceTree = "<group>"; };
 		1AC0041E20E5193B00A01BA6 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		1AC673B420E5881500F697A0 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				1AC003C120E4F1CE00A01BA6 /* WeatherViewController.swift */,
 				1AC003C220E4F1CE00A01BA6 /* WeatherViewInput.swift */,
 				1AC003C320E4F1CE00A01BA6 /* WeatherViewOutput.swift */,
+				1AC673B420E5881500F697A0 /* WeatherTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				1AC003D420E4F1CE00A01BA6 /* WeatherInitializer.swift in Sources */,
 				1AC0041420E514CA00A01BA6 /* Main.swift in Sources */,
 				1AC003D620E4F1CE00A01BA6 /* WeatherInteractorOutput.swift in Sources */,
+				1AC673B520E5881500F697A0 /* WeatherTableViewCell.swift in Sources */,
 				1AC003D520E4F1CE00A01BA6 /* WeatherInteractor.swift in Sources */,
 				1AC0041920E514CA00A01BA6 /* List.swift in Sources */,
 				1AC0041720E514CA00A01BA6 /* Rain.swift in Sources */,
