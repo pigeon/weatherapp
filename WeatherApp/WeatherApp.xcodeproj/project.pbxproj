@@ -40,6 +40,7 @@
 		1AC003FE20E4F3F600A01BA6 /* Rain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC003F420E4F3F600A01BA6 /* Rain.swift */; };
 		1AC003FF20E4F3F600A01BA6 /* Coord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC003F520E4F3F600A01BA6 /* Coord.swift */; };
 		1AC0040020E4F3F600A01BA6 /* Sys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC003F620E4F3F600A01BA6 /* Sys.swift */; };
+		1AC0040420E4F6F100A01BA6 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0040320E4F6F100A01BA6 /* response.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		1AC003F420E4F3F600A01BA6 /* Rain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rain.swift; sourceTree = "<group>"; };
 		1AC003F520E4F3F600A01BA6 /* Coord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coord.swift; sourceTree = "<group>"; };
 		1AC003F620E4F3F600A01BA6 /* Sys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sys.swift; sourceTree = "<group>"; };
+		1AC0040320E4F6F100A01BA6 /* response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +303,7 @@
 		1AC0040120E4F4A700A01BA6 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				1AC0040320E4F6F100A01BA6 /* response.json */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AC0040420E4F6F100A01BA6 /* response.json in Resources */,
 				1AC003A620E4E8AF00A01BA6 /* LaunchScreen.storyboard in Resources */,
 				1AC003A320E4E8AF00A01BA6 /* Assets.xcassets in Resources */,
 				1AC003A120E4E8AF00A01BA6 /* Main.storyboard in Resources */,
