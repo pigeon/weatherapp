@@ -53,31 +53,23 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension WeatherViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return output.numberOfItems(in: collectionView.tag)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCollectionViewCell",
-                                                      for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCollectionViewCell",for: indexPath) as? WeatherCollectionViewCell else {
+            fatalError()
+        }
 
-//        switch collectionView.tag {
-//        case 0:
-//            cell.backgroundColor = UIColor.blue
-//        case 1:
-//            cell.backgroundColor = UIColor.red
-//        case 2:
-//            cell.backgroundColor = UIColor.green
-//        case 3:
-//            cell.backgroundColor = UIColor.gray
-//        case 4:
-//            cell.backgroundColor = UIColor.yellow
-//        default:
-//            cell.backgroundColor = UIColor.orange
-//        }
 
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 0.25
+        
+        let data = output.dataForCell(in:collectionView.tag, row:indexPath.section)
+        
+        cell.configureCell(with: data)
         return cell
     }
 }

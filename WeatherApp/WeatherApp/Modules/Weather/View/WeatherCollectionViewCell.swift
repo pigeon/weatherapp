@@ -13,4 +13,10 @@ class WeatherCollectionViewCell : UICollectionViewCell {
     
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var time: UILabel!
+    
+    func configureCell(with data:WeatherModel) {
+        temperature.text = String(data.tepmerature)
+        time.text = String(describing: data.date)
+    }
+    
 }

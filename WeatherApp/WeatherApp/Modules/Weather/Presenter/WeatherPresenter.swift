@@ -9,7 +9,7 @@
 import Foundation
 
 class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractorOutput {
-    
+
     weak var view: WeatherViewInput!
     var interactor: WeatherInteractorInput!
     var router: WeatherRouterInput!
@@ -74,5 +74,12 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
             return ""
         }
         return items.key
+    }
+    
+    func dataForCell(in section: Int, row: Int) -> WeatherModel {
+        guard let items = dataSource[section].first else {
+            fatalError()
+        }
+        return items.value[row]
     }
 }
