@@ -15,11 +15,7 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
     var wertherByDay = [String: [WeatherModel]]()
     var dataSource = [[String: [WeatherModel]]]()
 
-    lazy var dateFormatterTo: DateFormatter = {
-        var dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        return dateFormatter
-    }()
+
 
     lazy var dateFormatterDay: DateFormatter = {
         var dateFormatter = DateFormatter()

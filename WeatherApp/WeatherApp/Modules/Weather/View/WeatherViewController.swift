@@ -64,7 +64,7 @@ extension WeatherViewController: UICollectionViewDataSource {
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 0.25
 
-        let data = output.dataForCell(in: collectionView.tag, row: indexPath.section)
+        let data = output.dataForCell(in: collectionView.tag, row: indexPath.row)
 
         cell.configureCell(with: data)
         return cell

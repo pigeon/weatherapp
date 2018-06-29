@@ -14,6 +14,6 @@ class WeatherCollectionViewCell: UICollectionViewCell {
 
     func configureCell(with data: WeatherModel) {
         temperature.text = String(data.tepmerature)
-        time.text = String(describing: data.date)
+        time.text = data.time
     }
 }
