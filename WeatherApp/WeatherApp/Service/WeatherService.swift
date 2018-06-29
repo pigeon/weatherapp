@@ -29,9 +29,8 @@ class WeatherServiceImpl: WeatherService {
     }
 
     func weather(for city: String, completionBlock: @escaping WeatherServiceCompletion) {
-        let strURL = host + "?APPID=\(key)&units=metric&q=\(String(describing: city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)))"
-
-        guard let url = URL(string: strURL) else {
+        guard let city = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
+            let url = URL(string: host + "?APPID=\(key)&units=metric&q=\(city)") else {
             completionBlock(.failure(NSError(domain: "Bad URL", code: Int.max - 1, userInfo: [NSLocalizedDescriptionKey: "Service URL is invalid"])))
             return
         }

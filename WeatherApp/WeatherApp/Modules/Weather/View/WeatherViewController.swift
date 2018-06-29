@@ -13,6 +13,8 @@ class WeatherViewController: UIViewController, WeatherViewInput {
 
     // MARK: Life cycle
 
+    @IBOutlet var tableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         output.viewIsReady()
@@ -22,6 +24,8 @@ class WeatherViewController: UIViewController, WeatherViewInput {
     }
 
     func reload() {
+        title = output.navigationTitle()
+        tableView.reloadData()
     }
 }
 

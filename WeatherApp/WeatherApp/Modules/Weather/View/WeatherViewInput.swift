@@ -6,6 +6,8 @@
 //  Copyright © 2018 dmytro golub. All rights reserved.
 //
 
+import Foundation
+
 protocol WeatherViewInput: class {
     /**
      @author Dmytro Golub
@@ -14,4 +16,5 @@ protocol WeatherViewInput: class {
 
     func setupInitialState()
     func reload()
+    func show(error: NSError)
 }

@@ -27,13 +27,13 @@ class WeatherInteractor: WeatherInteractorInput {
         return formatter
     }()
 
-    lazy var dateFormatterTo: DateFormatter = {
+    lazy var dateFormatterTime: DateFormatter = {
         var dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         return dateFormatter
     }()
 
-    init(service: WeatherService = WeatherServiceMock()) {
+    init(service: WeatherService = /* WeatherServiceMock() */ WeatherServiceImpl()) {
         weatherService = service
     }
 
@@ -74,9 +74,10 @@ class WeatherInteractor: WeatherInteractorInput {
         guard let time = time else {
             return ""
         }
-        return dateFormatterTo.string(from: time)
+        return dateFormatterTime.string(from: time)
     }
 
-    func fail(with _: Error) {
+    func fail(with error: Error) {
+        output.fail(with: error)
     }
 }

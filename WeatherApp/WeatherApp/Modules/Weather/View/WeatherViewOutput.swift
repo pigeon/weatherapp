@@ -13,9 +13,11 @@ protocol WeatherViewOutput {
      */
 
     func viewIsReady()
+    // model data source
     func numberOfSections() -> Int
     func numberOfItems(in section: Int) -> Int
-    func titleForHeader(in section: Int) -> String
-
     func dataForCell(in section: Int, row: Int) -> WeatherModel
+    // titles
+    func titleForHeader(in section: Int) -> String
+    func navigationTitle() -> String
 }

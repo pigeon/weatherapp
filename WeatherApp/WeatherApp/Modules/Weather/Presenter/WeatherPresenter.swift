@@ -14,6 +14,7 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
     var router: WeatherRouterInput!
     var wertherByDay = [String: [WeatherModel]]()
     var weatherDays = [String]()
+    var searchLocation: String = "London, UK"
 
     lazy var dateFormatterDay: DateFormatter = {
         var dateFormatter = DateFormatter()
@@ -22,7 +23,7 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
     }()
 
     func viewIsReady() {
-        interactor.fetchWeather(for: "London,UK")
+        interactor.fetchWeather(for: searchLocation)
     }
 
     func weather(_ weatherList: [WeatherModel]?) {
@@ -50,6 +51,10 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
         }
     }
 
+    func fail(with error: Error) {
+        view.show(error: error as NSError)
+    }
+
     func numberOfSections() -> Int {
         return weatherDays.count
     }
@@ -65,6 +70,10 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
     func titleForHeader(in section: Int) -> String {
         let key = weatherDays[section]
         return key
+    }
+
+    func navigationTitle() -> String {
+        return searchLocation
     }
 
     func dataForCell(in section: Int, row: Int) -> WeatherModel {
