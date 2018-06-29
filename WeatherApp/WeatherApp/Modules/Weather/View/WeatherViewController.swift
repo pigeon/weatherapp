@@ -26,15 +26,14 @@ class WeatherViewController: UIViewController, WeatherViewInput {
 }
 
 extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
-    
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 1 //output.numberOfSections()
+        return 1 // output.numberOfSections()
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
+
+    func numberOfSections(in _: UITableView) -> Int {
         return output.numberOfSections()
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTableViewCell", for: indexPath) as? WeatherTableViewCell else {
             fatalError()
@@ -46,29 +45,27 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
         guard let tableViewCell = cell as? WeatherTableViewCell else { return }
         tableViewCell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.section)
     }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return output.titleForHeader(in:section)
+
+    func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return output.titleForHeader(in: section)
     }
 }
 
 extension WeatherViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return output.numberOfItems(in: collectionView.tag)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCollectionViewCell",for: indexPath) as? WeatherCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCollectionViewCell", for: indexPath) as? WeatherCollectionViewCell else {
             fatalError()
         }
 
-
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 0.25
-        
-        let data = output.dataForCell(in:collectionView.tag, row:indexPath.section)
-        
+
+        let data = output.dataForCell(in: collectionView.tag, row: indexPath.section)
+
         cell.configureCell(with: data)
         return cell
     }

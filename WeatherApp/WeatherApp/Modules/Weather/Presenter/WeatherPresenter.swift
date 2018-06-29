@@ -9,7 +9,6 @@
 import Foundation
 
 class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractorOutput {
-
     weak var view: WeatherViewInput!
     var interactor: WeatherInteractorInput!
     var router: WeatherRouterInput!
@@ -37,7 +36,6 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
             return
         }
 
-    
         weatherList.forEach {
             let day = dateFormatterDay.string(from: $0.date)
             if let array = wertherByDay[day] {
@@ -50,9 +48,9 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
         }
 
         wertherByDay.forEach {
-            dataSource.append( [$0 : $1] )
+            dataSource.append([$0: $1])
         }
-        
+
         DispatchQueue.main.async {
             self.view.reload()
         }
@@ -68,14 +66,14 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
         }
         return items.value.count
     }
-    
+
     func titleForHeader(in section: Int) -> String {
         guard let items = dataSource[section].first else {
             return ""
         }
         return items.key
     }
-    
+
     func dataForCell(in section: Int, row: Int) -> WeatherModel {
         guard let items = dataSource[section].first else {
             fatalError()
