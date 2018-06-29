@@ -14,6 +14,7 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
     var interactor: WeatherInteractorInput!
     var router: WeatherRouterInput!
     var wertherByDay = [String: [WeatherModel]]()
+    var dataSource = [[String: [WeatherModel]]]()
 
     lazy var dateFormatterTo: DateFormatter = {
         var dateFormatter = DateFormatter()
@@ -23,7 +24,7 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
 
     lazy var dateFormatterDay: DateFormatter = {
         var dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy" // 28/06/2018 9:00
+        dateFormatter.dateFormat = "dd MMM" // 28/06/2018 9:00
         return dateFormatter
     }()
 
@@ -36,6 +37,7 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
             return
         }
 
+    
         weatherList.forEach {
             let day = dateFormatterDay.string(from: $0.date)
             if let array = wertherByDay[day] {
@@ -47,21 +49,30 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
             }
         }
 
+        wertherByDay.forEach {
+            dataSource.append( [$0 : $1] )
+        }
+        
         DispatchQueue.main.async {
             self.view.reload()
         }
     }
-    
+
     func numberOfSections() -> Int {
-        return wertherByDay.count
+        return dataSource.count
     }
-    
-    func numberOfItems(in section: String) -> Int {
-        guard let items = wertherByDay[section] else {
+
+    func numberOfItems(in section: Int) -> Int {
+        guard let items = dataSource[section].first else {
             return 0
         }
-        
-        return items.count
+        return items.value.count
     }
     
+    func titleForHeader(in section: Int) -> String {
+        guard let items = dataSource[section].first else {
+            return ""
+        }
+        return items.key
+    }
 }

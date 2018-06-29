@@ -19,43 +19,42 @@ protocol WeatherService {
     func weather(for city: String, completionBlock: @escaping WeatherServiceCompletion)
 }
 
-
-class WeatherServiceImpl : WeatherService {
-    
+class WeatherServiceImpl: WeatherService {
     private let session = URLSession(configuration: URLSessionConfiguration.default)
     private let host = "https://api.openweathermap.org/data/2.5/forecast"
-    let key:String
-    
-    init(apiKey:String="") {
+    let key: String
+
+    init(apiKey: String = "fc7b05685865f015f42102ea620a8611") {
         key = apiKey
     }
-    
-    func weather(for city: String, completionBlock: @escaping WeatherServiceCompletion) {
-        
-        let strURL = host + "?APPID=\(key)&units=metric&q=\(String(describing: city.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)))"
-        
-        let url = URL(string: strURL)
-        var request = URLRequest(url: url!)
 
-        
-        //request.encodeParameters(parameters: createRequestBody())
-        
-        let task = session.dataTask(with: request) {  (data, response, error) in
-            
-            if  error == nil,
+    func weather(for city: String, completionBlock: @escaping WeatherServiceCompletion) {
+        let strURL = host + "?APPID=\(key)&units=metric&q=\(String(describing: city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)))"
+
+        guard let url = URL(string: strURL) else {
+            completionBlock(.failure(NSError(domain: "Bad URL", code: Int.max - 1, userInfo: [NSLocalizedDescriptionKey: "Service URL is invalid"])))
+            return
+        }
+
+        let request = URLRequest(url: url)
+
+        let task = session.dataTask(with: request) { data, response, error in
+
+            if error == nil,
                 let data = data,
                 let response = response as? HTTPURLResponse,
-                response.statusCode = 200 {
-                
-                //    completionBlock(.success(responseModel))
+                response.statusCode == 200 {
+                do {
+                    let jsonDecoder = JSONDecoder()
+                    let responseModel = try jsonDecoder.decode(WeatherObject.self, from: data)
+                    completionBlock(.success(responseModel))
+                } catch {
+                    completionBlock(.failure(error))
+                }
             } else {
-                //completion(nil,error! as NSError)
-                //self.service(error: error as NSError?, completion: AuthorisationAction(completion: completion))
-            }
+                completionBlock(.failure(NSError(domain: "Bad URL", code: Int.max - 1, userInfo: [NSLocalizedDescriptionKey: "Service request error"]))) }
         }
-        
+
         task.resume()
     }
-    
-    
 }

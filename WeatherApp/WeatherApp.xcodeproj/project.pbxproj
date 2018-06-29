@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A78A5A120E641D400BF8CE4 /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A78A5A020E641D400BF8CE4 /* WeatherCollectionViewCell.swift */; };
 		1AC0039C20E4E8AF00A01BA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0039B20E4E8AF00A01BA6 /* AppDelegate.swift */; };
 		1AC003A120E4E8AF00A01BA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0039F20E4E8AF00A01BA6 /* Main.storyboard */; };
 		1AC003A320E4E8AF00A01BA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AC003A220E4E8AF00A01BA6 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A78A5A020E641D400BF8CE4 /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
 		1AC0039820E4E8AF00A01BA6 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AC0039B20E4E8AF00A01BA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AC003A020E4E8AF00A01BA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				1AC003C220E4F1CE00A01BA6 /* WeatherViewInput.swift */,
 				1AC003C320E4F1CE00A01BA6 /* WeatherViewOutput.swift */,
 				1AC673B420E5881500F697A0 /* WeatherTableViewCell.swift */,
+				1A78A5A020E641D400BF8CE4 /* WeatherCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A78A5A120E641D400BF8CE4 /* WeatherCollectionViewCell.swift in Sources */,
 				1AC003D120E4F1CE00A01BA6 /* WeatherViewInput.swift in Sources */,
 				1AC003D220E4F1CE00A01BA6 /* WeatherViewOutput.swift in Sources */,
 				1AC0041620E514CA00A01BA6 /* Wind.swift in Sources */,

@@ -18,20 +18,23 @@ class WeatherViewController: UIViewController, WeatherViewInput {
         output.viewIsReady()
     }
 
-
     func setupInitialState() {
     }
 
     func reload() {
-        
     }
 }
 
 extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return 1 //output.numberOfSections()
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return output.numberOfSections()
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTableViewCell", for: indexPath) as? WeatherTableViewCell else {
             fatalError()
@@ -41,33 +44,37 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let tableViewCell = cell as? WeatherTableViewCell else { return }
-        tableViewCell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
+        tableViewCell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.section)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return output.titleForHeader(in:section)
     }
 }
 
 extension WeatherViewController: UICollectionViewDataSource {
-    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return 8
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return output.numberOfItems(in: collectionView.tag)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCollectionViewCell",
                                                       for: indexPath)
 
-        switch collectionView.tag {
-        case 0:
-            cell.backgroundColor = UIColor.blue
-        case 1:
-            cell.backgroundColor = UIColor.red
-        case 2:
-            cell.backgroundColor = UIColor.green
-        case 3:
-            cell.backgroundColor = UIColor.gray
-        case 4:
-            cell.backgroundColor = UIColor.yellow
-        default:
-            cell.backgroundColor = UIColor.orange
-        }
+//        switch collectionView.tag {
+//        case 0:
+//            cell.backgroundColor = UIColor.blue
+//        case 1:
+//            cell.backgroundColor = UIColor.red
+//        case 2:
+//            cell.backgroundColor = UIColor.green
+//        case 3:
+//            cell.backgroundColor = UIColor.gray
+//        case 4:
+//            cell.backgroundColor = UIColor.yellow
+//        default:
+//            cell.backgroundColor = UIColor.orange
+//        }
 
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 0.25
