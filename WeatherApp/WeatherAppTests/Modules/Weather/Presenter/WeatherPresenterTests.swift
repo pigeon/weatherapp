@@ -10,6 +10,8 @@
 import XCTest
 
 class WeatherPresenterTest: XCTestCase {
+    let presenter = WeatherPresenter()
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -20,13 +22,48 @@ class WeatherPresenterTest: XCTestCase {
         super.tearDown()
     }
 
-    class MockInteractor: WeatherInteractorInput {
+    func testDateFormat() {
+        let date0 = Date(timeIntervalSince1970: 1_530_198_000) // "Jun 28, 2018 at 4:00 PM"
+        let date1 = Date(timeIntervalSince1970: 1_530_208_800) // "Jun 28, 2018 at 7:00 PM"
+        let date2 = Date(timeIntervalSince1970: 1_530_241_200) // "Jun 29, 2018 at 4:00 AM"
+
+        XCTAssertTrue(presenter.dateFormatterDay.string(from: date0) == "28 Jun", "Date is not formatted correctly")
+        XCTAssertTrue(presenter.dateFormatterDay.string(from: date1) == "28 Jun", "Date is not formatted correctly")
+        XCTAssertFalse(presenter.dateFormatterDay.string(from: date2) == "28 Jun", "Date is not formatted correctly")
     }
 
-    class MockRouter: WeatherRouterInput {
+    func testViewIsReady() {
+        let interactor = MockInteractor()
+        presenter.interactor = interactor
+        presenter.viewIsReady()
+        XCTAssertTrue(interactor.weatherFetcherCalled, "Weather has to be fetched")
+    }
+
+    func testFail() {
+        let view = MockViewController()
+        presenter.view = view
+        presenter.fail(with: NSError(domain: "", code: Int.max - 1, userInfo: [:]))
+        XCTAssertTrue(view.showErrorCalled, "showError should get called")
+    }
+
+    class MockInteractor: WeatherInteractorInput {
+        var weatherFetcherCalled = false
+
+        func fetchWeather(for _: String) {
+            weatherFetcherCalled = true
+        }
     }
 
     class MockViewController: WeatherViewInput {
+        var showErrorCalled = false
+
+        func reload() {
+        }
+
+        func show(error _: NSError) {
+            showErrorCalled = true
+        }
+
         func setupInitialState() {
         }
     }

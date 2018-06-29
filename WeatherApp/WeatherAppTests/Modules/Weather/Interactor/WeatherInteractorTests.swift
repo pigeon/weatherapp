@@ -21,5 +21,10 @@ class WeatherInteractorTests: XCTestCase {
     }
 
     class MockPresenter: WeatherInteractorOutput {
+        func weather(_: [WeatherModel]?) {
+        }
+
+        func fail(with _: Error) {
+        }
     }
 }

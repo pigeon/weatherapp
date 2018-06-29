@@ -34,8 +34,6 @@ class WeatherModuleConfiguratorTests: XCTestCase {
 
         let presenter: WeatherPresenter = viewController.output as! WeatherPresenter
         XCTAssertNotNil(presenter.view, "view in WeatherPresenter is nil after configuration")
-        XCTAssertNotNil(presenter.router, "router in WeatherPresenter is nil after configuration")
-        XCTAssertTrue(presenter.router is WeatherRouter, "router is not WeatherRouter")
 
         let interactor: WeatherInteractor = presenter.interactor as! WeatherInteractor
         XCTAssertNotNil(interactor.output, "output in WeatherInteractor is nil after configuration")

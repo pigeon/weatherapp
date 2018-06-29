@@ -16,11 +16,8 @@ class WeatherModuleConfigurator {
     }
 
     private func configure(viewController: WeatherViewController) {
-        let router = WeatherRouter()
-
         let presenter = WeatherPresenter()
         presenter.view = viewController
-        presenter.router = router
 
         let interactor = WeatherInteractor()
         interactor.output = presenter

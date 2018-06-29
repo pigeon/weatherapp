@@ -11,7 +11,6 @@ import Foundation
 class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractorOutput {
     weak var view: WeatherViewInput!
     var interactor: WeatherInteractorInput!
-    var router: WeatherRouterInput!
     var wertherByDay = [String: [WeatherModel]]()
     var weatherDays = [String]()
     var searchLocation: String = "London, UK"

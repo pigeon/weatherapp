@@ -3,7 +3,7 @@
 import Foundation
 
 let date0 = Date(timeIntervalSince1970: 1_530_198_000)
-let date1 = Date(timeIntervalSince1970: 1_530_208_800)
+let date1 = Date(timeIntervalSince1970: 1_530_241_200)
 
 let day = Calendar.current.component(.day, from: date1)
 let month = Calendar.current.component(.month, from: date1)
