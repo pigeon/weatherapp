@@ -15,8 +15,6 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
     var wertherByDay = [String: [WeatherModel]]()
     var dataSource = [[String: [WeatherModel]]]()
 
-
-
     lazy var dateFormatterDay: DateFormatter = {
         var dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM" // 28/06/2018 9:00
@@ -34,6 +32,7 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
 
         weatherList.forEach {
             let day = dateFormatterDay.string(from: $0.date)
+
             if let array = wertherByDay[day] {
                 var newArray = array
                 newArray.append($0)

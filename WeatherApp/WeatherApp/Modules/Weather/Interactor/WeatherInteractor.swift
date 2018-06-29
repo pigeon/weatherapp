@@ -11,7 +11,7 @@ import Foundation
 struct WeatherModel {
     let title: String
     let date: Date
-    let time:String
+    let time: String
     let tepmerature: String
 }
 
@@ -26,7 +26,7 @@ class WeatherInteractor: WeatherInteractorInput {
         formatter.roundingMode = .halfUp
         return formatter
     }()
-    
+
     lazy var dateFormatterTo: DateFormatter = {
         var dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
@@ -59,24 +59,24 @@ class WeatherInteractor: WeatherInteractorInput {
         output.weather(weatherList)
     }
 
-    func format(temperature:Double?) -> String {
+    func format(temperature: Double?) -> String {
         guard let temperature = temperature else {
-                return ""
+            return ""
         }
-        let number = NSNumber(value:temperature)
-        guard let str = temperatureFormatter.string(from:number) else {
+        let number = NSNumber(value: temperature)
+        guard let str = temperatureFormatter.string(from: number) else {
             return ""
         }
         return "\(str)℃"
     }
-    
-    func format(time:Date?) -> String {
+
+    func format(time: Date?) -> String {
         guard let time = time else {
             return ""
         }
         return dateFormatterTo.string(from: time)
     }
- 
+
     func fail(with _: Error) {
     }
 }
