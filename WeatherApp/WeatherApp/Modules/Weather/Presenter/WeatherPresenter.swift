@@ -9,6 +9,7 @@
 import Foundation
 
 class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractorOutput {
+    
     weak var view: WeatherViewInput!
     var interactor: WeatherInteractorInput!
     var router: WeatherRouterInput!
@@ -50,4 +51,17 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
             self.view.reload()
         }
     }
+    
+    func numberOfSections() -> Int {
+        return wertherByDay.count
+    }
+    
+    func numberOfItems(in section: String) -> Int {
+        guard let items = wertherByDay[section] else {
+            return 0
+        }
+        
+        return items.count
+    }
+    
 }

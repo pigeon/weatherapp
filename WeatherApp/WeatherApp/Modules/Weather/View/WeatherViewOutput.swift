@@ -13,4 +13,6 @@ protocol WeatherViewOutput {
      */
 
     func viewIsReady()
+    func numberOfSections() -> Int
+    func numberOfItems(in section:String) -> Int
 }

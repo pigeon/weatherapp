@@ -23,12 +23,13 @@ class WeatherViewController: UIViewController, WeatherViewInput {
     }
 
     func reload() {
+        
     }
 }
 
 extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 5 // model.count
+        return output.numberOfSections()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
