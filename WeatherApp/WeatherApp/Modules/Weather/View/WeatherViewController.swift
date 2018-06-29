@@ -26,9 +26,8 @@ class WeatherViewController: UIViewController, WeatherViewInput {
 }
 
 extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
-    
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 1 
+        return 1
     }
 
     func numberOfSections(in _: UITableView) -> Int {

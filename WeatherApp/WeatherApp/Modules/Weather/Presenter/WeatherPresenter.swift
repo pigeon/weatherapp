@@ -13,11 +13,11 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
     var interactor: WeatherInteractorInput!
     var router: WeatherRouterInput!
     var wertherByDay = [String: [WeatherModel]]()
-    var dataSource = [[String: [WeatherModel]]]()
+    var weatherDays = [String]()
 
     lazy var dateFormatterDay: DateFormatter = {
         var dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM" // 28/06/2018 9:00
+        dateFormatter.dateFormat = "dd MMM"
         return dateFormatter
     }()
 
@@ -29,10 +29,11 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
         guard let weatherList = weatherList else {
             return
         }
+        let dates = NSMutableOrderedSet()
 
         weatherList.forEach {
             let day = dateFormatterDay.string(from: $0.date)
-
+            dates.add(day)
             if let array = wertherByDay[day] {
                 var newArray = array
                 newArray.append($0)
@@ -42,9 +43,7 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
             }
         }
 
-        wertherByDay.forEach {
-            dataSource.append([$0: $1])
-        }
+        weatherDays = Array(dates) as! [String]
 
         DispatchQueue.main.async {
             self.view.reload()
@@ -52,27 +51,27 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
     }
 
     func numberOfSections() -> Int {
-        return dataSource.count
+        return weatherDays.count
     }
 
     func numberOfItems(in section: Int) -> Int {
-        guard let items = dataSource[section].first else {
+        let key = weatherDays[section]
+        guard let count = wertherByDay[key]?.count else {
             return 0
         }
-        return items.value.count
+        return count
     }
 
     func titleForHeader(in section: Int) -> String {
-        guard let items = dataSource[section].first else {
-            return ""
-        }
-        return items.key
+        let key = weatherDays[section]
+        return key
     }
 
     func dataForCell(in section: Int, row: Int) -> WeatherModel {
-        guard let items = dataSource[section].first else {
+        let key = weatherDays[section]
+        guard let items = wertherByDay[key] else {
             fatalError()
         }
-        return items.value[row]
+        return items[row]
     }
 }
