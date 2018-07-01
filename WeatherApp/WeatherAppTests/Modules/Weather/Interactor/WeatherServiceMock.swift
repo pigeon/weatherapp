@@ -23,7 +23,8 @@ class WeatherServiceMock: WeatherService {
     }
 
     init() {
-        let url = Bundle.main.url(forResource: "response", withExtension: "json")!
+        let bundle = Bundle(for: WeatherServiceMock.self)
+        let url = bundle.url(forResource: "response", withExtension: "json")!
         jsonData = try! Data(contentsOf: url)
     }
 }

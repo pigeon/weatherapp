@@ -11,10 +11,11 @@ import XCTest
 
 class WeatherPresenterTest: XCTestCase {
     let presenter = WeatherPresenter()
+    let view = MockViewController()
 
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        view.reset()
     }
 
     override func tearDown() {
@@ -34,20 +35,21 @@ class WeatherPresenterTest: XCTestCase {
 
     func testViewIsReady() {
         let interactor = MockInteractor()
-        let view = MockViewController()
         presenter.interactor = interactor
         presenter.view = view
         presenter.viewIsReady()
         XCTAssertTrue(interactor.weatherFetcherCalled, "Weather has to be fetched")
+        XCTAssertTrue(view.startActivityCalled,"Activity indicator should have been started")
     }
 
     func testFail() {
-        let view = MockViewController()
         let expectation = self.expectation(description: "fail expectation")
         view.expectation = expectation
         presenter.view = view
         presenter.fail(with: NSError(domain: "", code: Int.max - 1, userInfo: [:]))
+        waitForExpectations(timeout: 0.5, handler: nil)
         XCTAssertTrue(view.showErrorCalled, "showError should get called")
+        XCTAssertTrue(view.stopActivityCalled,"Activity indicator should have been stopped")
     }
 
     func testWeatherResultsEmpty() {
@@ -58,13 +60,13 @@ class WeatherPresenterTest: XCTestCase {
     }
 
     func testWeatherResults() {
-        let view = MockViewController()
         let expectation = self.expectation(description: "reload expectation")
         view.expectation = expectation
         presenter.view = view
         presenter.weather([])
         waitForExpectations(timeout: 0.5, handler: nil)
         XCTAssertTrue(view.reloadCalled, "View reload should get called")
+        XCTAssertTrue(view.stopActivityCalled,"Activity indicator should have been stopped")
     }
 
     func testNavigationTitle() {
@@ -84,8 +86,19 @@ class WeatherPresenterTest: XCTestCase {
     class MockViewController: WeatherViewInput {
         var showErrorCalled = false
         var reloadCalled = false
+        var startActivityCalled = false
+        var stopActivityCalled = false
         var expectation: XCTestExpectation?
+        
 
+        func reset() {
+            showErrorCalled = false
+            reloadCalled = false
+            startActivityCalled = false
+            stopActivityCalled = false
+            expectation = nil
+        }
+        
         func reload() {
             reloadCalled = true
             expectation?.fulfill()
@@ -100,9 +113,11 @@ class WeatherPresenterTest: XCTestCase {
         }
 
         func startActivityIndicator() {
+            startActivityCalled = true
         }
 
         func stopActivityIndicator() {
+            stopActivityCalled = true
         }
     }
 }
