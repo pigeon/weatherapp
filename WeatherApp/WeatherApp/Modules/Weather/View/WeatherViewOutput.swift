@@ -13,6 +13,7 @@ protocol WeatherViewOutput {
      */
 
     func viewIsReady()
+    func refreshResults()
     // model data source
     func numberOfSections() -> Int
     func numberOfItems(in section: Int) -> Int

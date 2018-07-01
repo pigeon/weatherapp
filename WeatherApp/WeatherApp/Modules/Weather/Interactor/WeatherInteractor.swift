@@ -50,11 +50,10 @@ class WeatherInteractor: WeatherInteractorInput {
     }
 
     func populateProductModels(with result: WeatherObject) {
-        let weatherList = result.list?.map {
-            WeatherModel(title: result.city!.name!,
-                         date: Date(timeIntervalSince1970: Double($0.dt!)),
-                         time: format(time: Date(timeIntervalSince1970: Double($0.dt!))),
-                         tepmerature: format(temperature: $0.main?.temp))
+        let weatherList = result.list?.compactMap {
+            createWeatherModel(title: result.city!.name!,
+                               date: $0.dt,
+                               tepmerature: $0.main?.temp)
         }
         output.weather(weatherList)
     }
@@ -79,5 +78,19 @@ class WeatherInteractor: WeatherInteractorInput {
 
     func fail(with error: Error) {
         output.fail(with: error)
+    }
+}
+
+extension WeatherInteractor {
+    func createWeatherModel(title t: String?, date d: Int?, tepmerature temp: Double?) -> WeatherModel? {
+        guard let t = t,
+            let d = d,
+            let temp = temp else {
+            return nil
+        }
+        return WeatherModel(title: t,
+                            date: Date(timeIntervalSince1970: Double(d)),
+                            time: format(time: Date(timeIntervalSince1970: Double(d))),
+                            tepmerature: format(temperature: temp))
     }
 }

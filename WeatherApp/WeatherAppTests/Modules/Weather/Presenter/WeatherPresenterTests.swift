@@ -45,14 +45,14 @@ class WeatherPresenterTest: XCTestCase {
         presenter.fail(with: NSError(domain: "", code: Int.max - 1, userInfo: [:]))
         XCTAssertTrue(view.showErrorCalled, "showError should get called")
     }
-    
+
     func testWeatherResultsEmpty() {
         let view = MockViewController()
         presenter.view = view
         presenter.weather(nil)
-        XCTAssertFalse(view.reloadCalled,"View reload shouldn't get called")
+        XCTAssertFalse(view.reloadCalled, "View reload shouldn't get called")
     }
-    
+
     func testWeatherResults() {
         let view = MockViewController()
         let expectation = self.expectation(description: "reload expectation")
@@ -60,15 +60,15 @@ class WeatherPresenterTest: XCTestCase {
         presenter.view = view
         presenter.weather([])
         waitForExpectations(timeout: 0.5, handler: nil)
-        XCTAssertTrue(view.reloadCalled,"View reload should get called")
+        XCTAssertTrue(view.reloadCalled, "View reload should get called")
     }
-    
+
     func testNavigationTitle() {
         let searchLocation = "Location"
         presenter.searchLocation = searchLocation
-        XCTAssertTrue(presenter.navigationTitle() == searchLocation,"Search location is not as expected")
+        XCTAssertTrue(presenter.navigationTitle() == searchLocation, "Search location is not as expected")
     }
-    
+
     class MockInteractor: WeatherInteractorInput {
         var weatherFetcherCalled = false
 
@@ -80,8 +80,8 @@ class WeatherPresenterTest: XCTestCase {
     class MockViewController: WeatherViewInput {
         var showErrorCalled = false
         var reloadCalled = false
-        var expectation:XCTestExpectation?
-        
+        var expectation: XCTestExpectation?
+
         func reload() {
             reloadCalled = true
             expectation?.fulfill()
