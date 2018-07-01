@@ -9,7 +9,6 @@
 import Foundation
 
 class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractorOutput {
-    
     weak var view: WeatherViewInput!
     var interactor: WeatherInteractorInput!
     var wertherByDay = [String: [WeatherModel]]()
@@ -25,13 +24,13 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
     func viewIsReady() {
         refreshResults()
     }
-    
+
     func refreshResults() {
         view.startActivityIndicator()
         clearResults()
         interactor.fetchWeather(for: searchLocation)
     }
-    
+
     func clearResults() {
         wertherByDay = [String: [WeatherModel]]()
         weatherDays = [String]()
@@ -66,7 +65,7 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
     func fail(with error: Error) {
         DispatchQueue.main.async {
             self.view.stopActivityIndicator()
-             self.view.show(error: error as NSError)
+            self.view.show(error: error as NSError)
         }
     }
 

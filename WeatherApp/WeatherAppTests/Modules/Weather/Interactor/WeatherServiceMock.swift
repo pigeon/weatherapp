@@ -7,6 +7,7 @@
 //
 
 import Foundation
+@testable import WeatherApp
 
 class WeatherServiceMock: WeatherService {
     let jsonData: Data

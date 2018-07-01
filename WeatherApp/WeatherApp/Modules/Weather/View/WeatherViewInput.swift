@@ -17,8 +17,7 @@ protocol WeatherViewInput: class {
     func setupInitialState()
     func reload()
     func show(error: NSError)
-    
+
     func startActivityIndicator()
     func stopActivityIndicator()
-    
 }

@@ -34,13 +34,17 @@ class WeatherPresenterTest: XCTestCase {
 
     func testViewIsReady() {
         let interactor = MockInteractor()
+        let view = MockViewController()
         presenter.interactor = interactor
+        presenter.view = view
         presenter.viewIsReady()
         XCTAssertTrue(interactor.weatherFetcherCalled, "Weather has to be fetched")
     }
 
     func testFail() {
         let view = MockViewController()
+        let expectation = self.expectation(description: "fail expectation")
+        view.expectation = expectation
         presenter.view = view
         presenter.fail(with: NSError(domain: "", code: Int.max - 1, userInfo: [:]))
         XCTAssertTrue(view.showErrorCalled, "showError should get called")
@@ -89,9 +93,16 @@ class WeatherPresenterTest: XCTestCase {
 
         func show(error _: NSError) {
             showErrorCalled = true
+            expectation?.fulfill()
         }
 
         func setupInitialState() {
+        }
+
+        func startActivityIndicator() {
+        }
+
+        func stopActivityIndicator() {
         }
     }
 }

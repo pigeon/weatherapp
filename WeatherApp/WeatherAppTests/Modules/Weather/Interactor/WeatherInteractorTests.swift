@@ -10,6 +10,8 @@
 import XCTest
 
 class WeatherInteractorTests: XCTestCase {
+    let mockService = WeatherServiceMock()
+
     override func setUp() {
         super.setUp()
     }

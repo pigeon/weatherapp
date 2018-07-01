@@ -13,32 +13,30 @@ class WeatherViewController: UIViewController, WeatherViewInput {
     @IBOutlet var tableView: UITableView!
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
 
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         activityIndicator.center = view.center
         view.addSubview(activityIndicator)
-        
+
         output.viewIsReady()
     }
-    
+
     func setupInitialState() {
     }
-    
-    @IBAction func refresh(_ sender: Any) {
+
+    @IBAction func refresh(_: Any) {
         output.refreshResults()
     }
 
     func stopActivityIndicator() {
         activityIndicator.stopAnimating()
     }
-    
+
     func startActivityIndicator() {
         activityIndicator.startAnimating()
     }
-    
+
     func reload() {
         title = output.navigationTitle()
         tableView.reloadData()

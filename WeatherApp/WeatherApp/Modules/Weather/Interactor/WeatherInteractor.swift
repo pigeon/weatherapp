@@ -33,7 +33,7 @@ class WeatherInteractor: WeatherInteractorInput {
         return dateFormatter
     }()
 
-    init(service: WeatherService = /* WeatherServiceMock() */ WeatherServiceImpl()) {
+    init(service: WeatherService = WeatherServiceImpl()) {
         weatherService = service
     }
 
@@ -50,8 +50,8 @@ class WeatherInteractor: WeatherInteractorInput {
     }
 
     func populateProductModels(with result: WeatherObject) {
-        let weatherList = result.list?.compactMap {
-            createWeatherModel(title: result.city!.name!,
+        let weatherList = result.list?.flatMap {
+            createWeatherModel(title: result.city?.name,
                                date: $0.dt,
                                tepmerature: $0.main?.temp)
         }

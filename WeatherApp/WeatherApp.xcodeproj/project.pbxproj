@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A5120D520E971C600772BA7 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0041A20E5190700A01BA6 /* response.json */; };
+		1A5120D620E971DA00772BA7 /* WeatherServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0041C20E5192200A01BA6 /* WeatherServiceMock.swift */; };
 		1A78A5A120E641D400BF8CE4 /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A78A5A020E641D400BF8CE4 /* WeatherCollectionViewCell.swift */; };
 		1AAD31D320E6B3D4007FC69A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD31D220E6B3D4007FC69A /* ViewController.swift */; };
 		1AC0039C20E4E8AF00A01BA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0039B20E4E8AF00A01BA6 /* AppDelegate.swift */; };
@@ -33,8 +35,6 @@
 		1AC0041420E514CA00A01BA6 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0040A20E514CA00A01BA6 /* Main.swift */; };
 		1AC0041520E514CA00A01BA6 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0040B20E514CA00A01BA6 /* City.swift */; };
 		1AC0041920E514CA00A01BA6 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0040F20E514CA00A01BA6 /* List.swift */; };
-		1AC0041B20E5190700A01BA6 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0041A20E5190700A01BA6 /* response.json */; };
-		1AC0041D20E5192200A01BA6 /* WeatherServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0041C20E5192200A01BA6 /* WeatherServiceMock.swift */; };
 		1AC0041F20E5193B00A01BA6 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0041E20E5193B00A01BA6 /* WeatherService.swift */; };
 		1AC673B520E5881500F697A0 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC673B420E5881500F697A0 /* WeatherTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -263,6 +263,7 @@
 		1AC003E220E4F1DB00A01BA6 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				1AC0041C20E5192200A01BA6 /* WeatherServiceMock.swift */,
 				1AC003E320E4F1DB00A01BA6 /* WeatherInteractorTests.swift */,
 			);
 			path = Interactor;
@@ -272,7 +273,6 @@
 			isa = PBXGroup;
 			children = (
 				1AC0040520E4F72200A01BA6 /* Models */,
-				1AC0041C20E5192200A01BA6 /* WeatherServiceMock.swift */,
 				1AC0041E20E5193B00A01BA6 /* WeatherService.swift */,
 			);
 			path = Service;
@@ -383,7 +383,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AC0041B20E5190700A01BA6 /* response.json in Resources */,
 				1AC003A620E4E8AF00A01BA6 /* LaunchScreen.storyboard in Resources */,
 				1AC003A320E4E8AF00A01BA6 /* Assets.xcassets in Resources */,
 				1AC003A120E4E8AF00A01BA6 /* Main.storyboard in Resources */,
@@ -394,6 +393,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A5120D520E971C600772BA7 /* response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +408,6 @@
 				1AC003D120E4F1CE00A01BA6 /* WeatherViewInput.swift in Sources */,
 				1AC003D220E4F1CE00A01BA6 /* WeatherViewOutput.swift in Sources */,
 				1AC003D720E4F1CE00A01BA6 /* WeatherInteractorInput.swift in Sources */,
-				1AC0041D20E5192200A01BA6 /* WeatherServiceMock.swift in Sources */,
 				1AC003D020E4F1CE00A01BA6 /* WeatherViewController.swift in Sources */,
 				1AC0041520E514CA00A01BA6 /* City.swift in Sources */,
 				1AC003CF20E4F1CE00A01BA6 /* WeatherPresenter.swift in Sources */,
@@ -432,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A5120D620E971DA00772BA7 /* WeatherServiceMock.swift in Sources */,
 				1AC003E720E4F1DB00A01BA6 /* WeatherViewTests.swift in Sources */,
 				1AC003B120E4E8AF00A01BA6 /* WeatherAppTests.swift in Sources */,
 				1AC003E620E4F1DB00A01BA6 /* WeatherPresenterTests.swift in Sources */,
