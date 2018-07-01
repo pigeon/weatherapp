@@ -62,7 +62,13 @@ class WeatherPresenterTest: XCTestCase {
         waitForExpectations(timeout: 0.5, handler: nil)
         XCTAssertTrue(view.reloadCalled,"View reload should get called")
     }
-
+    
+    func testNavigationTitle() {
+        let searchLocation = "Location"
+        presenter.searchLocation = searchLocation
+        XCTAssertTrue(presenter.navigationTitle() == searchLocation,"Search location is not as expected")
+    }
+    
     class MockInteractor: WeatherInteractorInput {
         var weatherFetcherCalled = false
 

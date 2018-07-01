@@ -28,14 +28,10 @@
 		1AC003E720E4F1DB00A01BA6 /* WeatherViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC003DF20E4F1DB00A01BA6 /* WeatherViewTests.swift */; };
 		1AC003E820E4F1DB00A01BA6 /* WeatherConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC003E120E4F1DB00A01BA6 /* WeatherConfiguratorTests.swift */; };
 		1AC003E920E4F1DB00A01BA6 /* WeatherInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC003E320E4F1DB00A01BA6 /* WeatherInteractorTests.swift */; };
-		1AC0041020E514CA00A01BA6 /* Sys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0040620E514CA00A01BA6 /* Sys.swift */; };
 		1AC0041120E514CA00A01BA6 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0040720E514CA00A01BA6 /* Weather.swift */; };
 		1AC0041220E514CA00A01BA6 /* WeatherObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0040820E514CA00A01BA6 /* WeatherObject.swift */; };
 		1AC0041420E514CA00A01BA6 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0040A20E514CA00A01BA6 /* Main.swift */; };
 		1AC0041520E514CA00A01BA6 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0040B20E514CA00A01BA6 /* City.swift */; };
-		1AC0041620E514CA00A01BA6 /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0040C20E514CA00A01BA6 /* Wind.swift */; };
-		1AC0041720E514CA00A01BA6 /* Rain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0040D20E514CA00A01BA6 /* Rain.swift */; };
-		1AC0041820E514CA00A01BA6 /* Coord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0040E20E514CA00A01BA6 /* Coord.swift */; };
 		1AC0041920E514CA00A01BA6 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0040F20E514CA00A01BA6 /* List.swift */; };
 		1AC0041B20E5190700A01BA6 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0041A20E5190700A01BA6 /* response.json */; };
 		1AC0041D20E5192200A01BA6 /* WeatherServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0041C20E5192200A01BA6 /* WeatherServiceMock.swift */; };
@@ -80,14 +76,10 @@
 		1AC003DF20E4F1DB00A01BA6 /* WeatherViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewTests.swift; sourceTree = "<group>"; };
 		1AC003E120E4F1DB00A01BA6 /* WeatherConfiguratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherConfiguratorTests.swift; sourceTree = "<group>"; };
 		1AC003E320E4F1DB00A01BA6 /* WeatherInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherInteractorTests.swift; sourceTree = "<group>"; };
-		1AC0040620E514CA00A01BA6 /* Sys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sys.swift; path = WeatherApp/Service/Models/Sys.swift; sourceTree = SOURCE_ROOT; };
 		1AC0040720E514CA00A01BA6 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Weather.swift; path = WeatherApp/Service/Models/Weather.swift; sourceTree = SOURCE_ROOT; };
 		1AC0040820E514CA00A01BA6 /* WeatherObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherObject.swift; path = WeatherApp/Service/Models/WeatherObject.swift; sourceTree = SOURCE_ROOT; };
 		1AC0040A20E514CA00A01BA6 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Main.swift; path = WeatherApp/Service/Models/Main.swift; sourceTree = SOURCE_ROOT; };
 		1AC0040B20E514CA00A01BA6 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = City.swift; path = WeatherApp/Service/Models/City.swift; sourceTree = SOURCE_ROOT; };
-		1AC0040C20E514CA00A01BA6 /* Wind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Wind.swift; path = WeatherApp/Service/Models/Wind.swift; sourceTree = SOURCE_ROOT; };
-		1AC0040D20E514CA00A01BA6 /* Rain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Rain.swift; path = WeatherApp/Service/Models/Rain.swift; sourceTree = SOURCE_ROOT; };
-		1AC0040E20E514CA00A01BA6 /* Coord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coord.swift; path = WeatherApp/Service/Models/Coord.swift; sourceTree = SOURCE_ROOT; };
 		1AC0040F20E514CA00A01BA6 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = List.swift; path = WeatherApp/Service/Models/List.swift; sourceTree = SOURCE_ROOT; };
 		1AC0041A20E5190700A01BA6 /* response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = response.json; path = WeatherApp/Resources/response.json; sourceTree = SOURCE_ROOT; };
 		1AC0041C20E5192200A01BA6 /* WeatherServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceMock.swift; sourceTree = "<group>"; };
@@ -299,14 +291,10 @@
 			isa = PBXGroup;
 			children = (
 				1AC0040B20E514CA00A01BA6 /* City.swift */,
-				1AC0040E20E514CA00A01BA6 /* Coord.swift */,
 				1AC0040F20E514CA00A01BA6 /* List.swift */,
 				1AC0040A20E514CA00A01BA6 /* Main.swift */,
-				1AC0040D20E514CA00A01BA6 /* Rain.swift */,
-				1AC0040620E514CA00A01BA6 /* Sys.swift */,
 				1AC0040720E514CA00A01BA6 /* Weather.swift */,
 				1AC0040820E514CA00A01BA6 /* WeatherObject.swift */,
-				1AC0040C20E514CA00A01BA6 /* Wind.swift */,
 			);
 			name = Models;
 			path = "New Group";
@@ -419,11 +407,9 @@
 				1A78A5A120E641D400BF8CE4 /* WeatherCollectionViewCell.swift in Sources */,
 				1AC003D120E4F1CE00A01BA6 /* WeatherViewInput.swift in Sources */,
 				1AC003D220E4F1CE00A01BA6 /* WeatherViewOutput.swift in Sources */,
-				1AC0041620E514CA00A01BA6 /* Wind.swift in Sources */,
 				1AC003D720E4F1CE00A01BA6 /* WeatherInteractorInput.swift in Sources */,
 				1AC0041D20E5192200A01BA6 /* WeatherServiceMock.swift in Sources */,
 				1AC003D020E4F1CE00A01BA6 /* WeatherViewController.swift in Sources */,
-				1AC0041020E514CA00A01BA6 /* Sys.swift in Sources */,
 				1AC0041520E514CA00A01BA6 /* City.swift in Sources */,
 				1AC003CF20E4F1CE00A01BA6 /* WeatherPresenter.swift in Sources */,
 				1AC0041120E514CA00A01BA6 /* Weather.swift in Sources */,
@@ -437,8 +423,6 @@
 				1AC673B520E5881500F697A0 /* WeatherTableViewCell.swift in Sources */,
 				1AC003D520E4F1CE00A01BA6 /* WeatherInteractor.swift in Sources */,
 				1AC0041920E514CA00A01BA6 /* List.swift in Sources */,
-				1AC0041720E514CA00A01BA6 /* Rain.swift in Sources */,
-				1AC0041820E514CA00A01BA6 /* Coord.swift in Sources */,
 				1AC003CE20E4F1CE00A01BA6 /* WeatherModuleInput.swift in Sources */,
 				1AC003D320E4F1CE00A01BA6 /* WeatherConfigurator.swift in Sources */,
 			);
