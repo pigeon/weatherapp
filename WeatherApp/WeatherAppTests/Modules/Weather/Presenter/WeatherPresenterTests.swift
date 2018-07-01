@@ -39,7 +39,7 @@ class WeatherPresenterTest: XCTestCase {
         presenter.view = view
         presenter.viewIsReady()
         XCTAssertTrue(interactor.weatherFetcherCalled, "Weather has to be fetched")
-        XCTAssertTrue(view.startActivityCalled,"Activity indicator should have been started")
+        XCTAssertTrue(view.startActivityCalled, "Activity indicator should have been started")
     }
 
     func testFail() {
@@ -49,7 +49,7 @@ class WeatherPresenterTest: XCTestCase {
         presenter.fail(with: NSError(domain: "", code: Int.max - 1, userInfo: [:]))
         waitForExpectations(timeout: 0.5, handler: nil)
         XCTAssertTrue(view.showErrorCalled, "showError should get called")
-        XCTAssertTrue(view.stopActivityCalled,"Activity indicator should have been stopped")
+        XCTAssertTrue(view.stopActivityCalled, "Activity indicator should have been stopped")
     }
 
     func testWeatherResultsEmpty() {
@@ -66,7 +66,7 @@ class WeatherPresenterTest: XCTestCase {
         presenter.weather([])
         waitForExpectations(timeout: 0.5, handler: nil)
         XCTAssertTrue(view.reloadCalled, "View reload should get called")
-        XCTAssertTrue(view.stopActivityCalled,"Activity indicator should have been stopped")
+        XCTAssertTrue(view.stopActivityCalled, "Activity indicator should have been stopped")
     }
 
     func testNavigationTitle() {
@@ -89,7 +89,6 @@ class WeatherPresenterTest: XCTestCase {
         var startActivityCalled = false
         var stopActivityCalled = false
         var expectation: XCTestExpectation?
-        
 
         func reset() {
             showErrorCalled = false
@@ -98,7 +97,7 @@ class WeatherPresenterTest: XCTestCase {
             stopActivityCalled = false
             expectation = nil
         }
-        
+
         func reload() {
             reloadCalled = true
             expectation?.fulfill()

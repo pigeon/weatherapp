@@ -11,8 +11,7 @@ import XCTest
 
 class WeatherInteractorTests: XCTestCase {
     let mockService = WeatherServiceMock()
-    
-    
+
     override func setUp() {
         super.setUp()
     }
@@ -20,13 +19,13 @@ class WeatherInteractorTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-    
+
     func testWeatherFetcher() {
         let iteractor = WeatherInteractor(service: mockService)
         let presenter = MockPresenter()
         iteractor.output = presenter
         iteractor.fetchWeather(for: "London")
-        XCTAssertTrue(presenter.weatherGetCalled,"weather callback should be called")
+        XCTAssertTrue(presenter.weatherGetCalled, "weather callback should be called")
     }
 
     func testWeatherFetcherFailure() {
@@ -35,14 +34,14 @@ class WeatherInteractorTests: XCTestCase {
         iteractor.output = presenter
         let error = NSError(domain: "", code: 0, userInfo: [:])
         iteractor.fail(with: error)
-        XCTAssertTrue(presenter.error == error,"error is not as expected")
+        XCTAssertTrue(presenter.error == error, "error is not as expected")
     }
-    
+
     class MockPresenter: WeatherInteractorOutput {
         var weatherGetCalled = false
-        var error:NSError?
+        var error: NSError?
 
-        func weather(_ weather: [WeatherModel]?) {
+        func weather(_: [WeatherModel]?) {
             weatherGetCalled = true
         }
 

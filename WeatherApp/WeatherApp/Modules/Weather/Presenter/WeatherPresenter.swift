@@ -11,7 +11,7 @@ import Foundation
 class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractorOutput {
     weak var view: WeatherViewInput!
     var interactor: WeatherInteractorInput!
-    var wertherByDay = [String: [WeatherModel]]()
+    var weatherByDay = [String: [WeatherModel]]()
     var weatherDays = [String]()
     var searchLocation: String = "London, UK"
 
@@ -32,7 +32,7 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
     }
 
     func clearResults() {
-        wertherByDay = [String: [WeatherModel]]()
+        weatherByDay = [String: [WeatherModel]]()
         weatherDays = [String]()
     }
 
@@ -45,12 +45,12 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
         weatherList.forEach {
             let day = dateFormatterDay.string(from: $0.date)
             dates.add(day)
-            if let array = wertherByDay[day] {
+            if let array = weatherByDay[day] {
                 var newArray = array
                 newArray.append($0)
-                wertherByDay[day] = newArray
+                weatherByDay[day] = newArray
             } else {
-                wertherByDay[day] = [$0]
+                weatherByDay[day] = [$0]
             }
         }
 
@@ -75,7 +75,7 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
 
     func numberOfItems(in section: Int) -> Int {
         let key = weatherDays[section]
-        guard let count = wertherByDay[key]?.count else {
+        guard let count = weatherByDay[key]?.count else {
             return 0
         }
         return count
@@ -92,7 +92,7 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
 
     func dataForCell(in section: Int, row: Int) -> WeatherModel {
         let key = weatherDays[section]
-        guard let items = wertherByDay[key] else {
+        guard let items = weatherByDay[key] else {
             fatalError()
         }
         return items[row]
