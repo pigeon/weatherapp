@@ -1,3 +1,5 @@
+![image](https://github.com/pigeon/weatherapp/blob/master/weatherapp.gif)
+
 Build
 ------
 
