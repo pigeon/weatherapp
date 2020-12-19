@@ -2,8 +2,8 @@
 //  WeatherWeatherPresenter.swift
 //  WeatherApp
 //
-//  Created by Dmytro Golub on 28/06/2018.
-//  Copyright © 2018 dmytro golub. All rights reserved.
+//  Created by Dmytro Golub 
+//  
 //
 
 import Foundation
@@ -54,7 +54,11 @@ class WeatherPresenter: WeatherModuleInput, WeatherViewOutput, WeatherInteractor
             }
         }
 
-        weatherDays = Array(dates) as! [String]
+        guard let weather = Array(dates) as? [String] else {
+            fatalError("there is no error handling in here")
+        }
+
+        weatherDays = weather
 
         DispatchQueue.main.async {
             self.view.stopActivityIndicator()

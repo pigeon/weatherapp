@@ -1,6 +1,3 @@
-
-
-import Foundation
 struct Main: Codable {
     let temp: Double?
     let temp_min: Double?

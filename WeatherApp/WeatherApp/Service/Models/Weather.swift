@@ -1,5 +1,3 @@
-
-
 import Foundation
 struct Weather: Codable {
     let id: Int?

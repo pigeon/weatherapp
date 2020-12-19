@@ -2,8 +2,8 @@
 //  WeatherWeatherInteractor.swift
 //  WeatherApp
 //
-//  Created by Dmytro Golub on 28/06/2018.
-//  Copyright © 2018 dmytro golub. All rights reserved.
+//  Created by Dmytro Golub 
+//  
 //
 
 import Foundation
@@ -50,7 +50,7 @@ class WeatherInteractor: WeatherInteractorInput {
     }
 
     func populateProductModels(with result: WeatherObject) {
-        let weatherList = result.list?.flatMap {
+        let weatherList = result.list?.compactMap {
             createWeatherModel(title: result.city?.name,
                                date: $0.dt,
                                tepmerature: $0.main?.temp)

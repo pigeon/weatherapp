@@ -1,6 +1,3 @@
-
-
-import Foundation
 struct List: Codable {
     let dt: Int?
     let main: Main?

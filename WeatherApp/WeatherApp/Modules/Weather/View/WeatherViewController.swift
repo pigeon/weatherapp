@@ -2,8 +2,8 @@
 //  WeatherWeatherViewController.swift
 //  WeatherApp
 //
-//  Created by Dmytro Golub on 28/06/2018.
-//  Copyright © 2018 dmytro golub. All rights reserved.
+//  Created by Dmytro Golub 
+//  
 //
 
 import UIKit
@@ -53,7 +53,8 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTableViewCell", for: indexPath) as? WeatherTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTableViewCell",
+                                                       for: indexPath) as? WeatherTableViewCell else {
             fatalError()
         }
         return cell
@@ -74,8 +75,10 @@ extension WeatherViewController: UICollectionViewDataSource {
         return output.numberOfItems(in: collectionView.tag)
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCollectionViewCell", for: indexPath) as? WeatherCollectionViewCell else {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCollectionViewCell",
+                                                            for: indexPath) as? WeatherCollectionViewCell else {
             fatalError()
         }
 

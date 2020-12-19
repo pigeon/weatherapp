@@ -2,7 +2,7 @@
 //  ViewController.swift
 //
 //
-//  Created by magic on 08/06/2018.
+//  Created by Dmytro Golub
 //
 //
 

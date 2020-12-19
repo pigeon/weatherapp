@@ -2,8 +2,8 @@
 //  WeatherCollectionViewCell.swift
 //  WeatherApp
 //
-//  Created by Dmytro Golub on 29/06/2018.
-//  Copyright © 2018 dmytro golub. All rights reserved.
+//  Created by Dmytro Golub
+//  
 //
 
 import UIKit

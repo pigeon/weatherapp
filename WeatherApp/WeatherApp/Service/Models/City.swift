@@ -1,6 +1,3 @@
-
-
-import Foundation
 struct City: Codable {
     let id: Int?
     let name: String?

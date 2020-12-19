@@ -2,16 +2,10 @@
 //  WeatherService.swift
 //  WeatherApp
 //
-//  Created by Dmytro Golub on 28/06/2018.
-//  Copyright © 2018 dmytro golub. All rights reserved.
+//  Created by Dmytro Golub 
 //
 
 import Foundation
-
-enum Result<Value, Error> {
-    case success(Value)
-    case failure(Error)
-}
 
 typealias WeatherServiceCompletion = (Result<WeatherObject, Error>) -> Void
 
@@ -31,7 +25,9 @@ class WeatherServiceImpl: WeatherService {
     func weather(for city: String, completionBlock: @escaping WeatherServiceCompletion) {
         guard let city = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
             let url = URL(string: host + "?APPID=\(key)&units=metric&q=\(city)") else {
-            completionBlock(.failure(NSError(domain: "Bad URL", code: Int.max - 1, userInfo: [NSLocalizedDescriptionKey: "Service URL is invalid"])))
+            completionBlock(.failure(NSError(domain: "Bad URL",
+                                             code: Int.max - 1,
+                                             userInfo: [NSLocalizedDescriptionKey: "Service URL is invalid"])))
             return
         }
 
@@ -51,7 +47,9 @@ class WeatherServiceImpl: WeatherService {
                     completionBlock(.failure(error))
                 }
             } else {
-                completionBlock(.failure(NSError(domain: "Bad URL", code: Int.max - 1, userInfo: [NSLocalizedDescriptionKey: "Service request error"]))) }
+                completionBlock(.failure(NSError(domain: "Bad URL",
+                                                 code: Int.max - 1,
+                                                 userInfo: [NSLocalizedDescriptionKey: "Service request error"]))) }
         }
 
         task.resume()

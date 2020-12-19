@@ -1,5 +1,3 @@
-import Foundation
-
 struct WeatherObject: Codable {
     let code: String?
     let message: Double?
